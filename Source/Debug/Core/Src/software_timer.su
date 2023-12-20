@@ -1,0 +1,2 @@
+software_timer.c:14:6:settimer	16	static
+software_timer.c:20:6:timerrun	4	static
