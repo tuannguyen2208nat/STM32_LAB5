@@ -30,12 +30,12 @@ void uart_communiation_fsm(){
 		ADC_value = HAL_ADC_GetValue(&hadc1);
 		HAL_UART_Transmit(&huart2, (void *)response, sprintf(response, "!ADC%ld#\r", ADC_value), 1000);
 		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		settimer(TIME_FOR_3S);
+		settimer1(TIME_FOR_3S);
 		uartState = UART_WAIT_OK;
 		//cmd_content_index = 0;
 		break;
 	case UART_WAIT_OK:
-		if(timer_flag == 1) {
+		if(timer1_flag == 1) {
 			uartState = UART_END;
 		}
 

@@ -132,6 +132,7 @@ int main(void)
 
   char welcome[50];
   HAL_UART_Transmit(&huart2, (void *)welcome, sprintf(welcome, "STARTING STM32 UART LAB5\r\n"), 50);
+  settimer2(500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -140,7 +141,13 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(buffer_flag == 1){
+	  if(timer2_flag==1)
+	  {
+		  settimer2(500);
+		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	  }
+	  if(buffer_flag == 1)
+	  {
 		  command_parser_fsm();
 		  buffer_flag = 0;
 	  }
